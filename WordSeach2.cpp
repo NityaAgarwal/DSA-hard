@@ -50,16 +50,8 @@ public:
         if (row < 0 || row == board.size() || col < 0 || col == board[0].size() || 
         visited[row][col] == 1) return;
         //cond 3
-        int index;
-        bool found_in_children = false;
-        for (int i = 0; i<26; i++) {
-            index = board[row][col] - 'a';
-            if (this_node -> child[index]) {
-                found_in_children = true;
-                break;
-            }
-        }
-        if (!found_in_children) return; 
+        int index = board[row][col] - 'a';
+        if (!this_node -> child[index]) return;
 
         // main logic
         visited[row][col] = 1; //mark as visited
